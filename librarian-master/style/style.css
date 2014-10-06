@@ -1,0 +1,109 @@
+.ff-container{
+	width: 70%;
+	margin: 3px auto 3px auto;
+}
+
+.ff-items{
+	position: relative;
+	margin: 0px auto;
+}
+.ff-items a{
+	display: block;
+	position: relative;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+	width: 120px;
+	height: 150px;
+}
+.ff-items a span{
+	display: block;
+	background: rgba(113,123,161, 0.9);
+	font-style: italic;
+	color: #fff;
+	font-weight: bold;
+	padding: 20px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 80px;
+	height: 0px;
+	overflow: hidden;
+	opacity: 0;
+	text-align: center;
+	text-shadow: 1px 1px 1px #303857;
+}
+
+.ff-items li img {
+	vertical-align: middle;
+	width: 120px;
+	max-height: 150px;
+	display: inline-block;	
+}
+
+.ff-items li:hover {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.ff-items li{
+	margin: 0px;
+	float: left;
+	height: 186px;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.spacer {
+	height: 30px;
+}
+
+.ff-preview {
+	padding: 10px;
+	width: 750px;
+	height: 400px;
+    margin: 0 auto;
+}
+
+.ff-preview .bookcover {
+	vertical-align: middle;
+	width: 230px;
+	max-height: 400px;
+	display: inline-block;	
+	float: left;
+}
+
+.ff-preview .bookdata {
+	width: 475px;
+    height: 400px;
+    float: right;
+    text-align: left;
+}
+
+.ff-preview .bookdata table td {
+	padding: 6px;
+}
+
+.drop-shadow {
+    padding:1em;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+@-webkit-keyframes bounceIn {
+	0% {
+		-webkit-transform: scale(0.95);
+	}	
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+.bounceIn {
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration:0.5s;
+}

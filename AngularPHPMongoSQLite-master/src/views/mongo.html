@@ -1,0 +1,71 @@
+<div ng-controller="MongoController">
+
+	<div class="page-header">
+		<h1>Ejemplo 2 <small>Angular + PHP + MongoDB</small></h1>
+	</div>
+
+	<div class="alert alert-{{ alert.type }}" ng-repeat="alert in alerts" type="alert.type">
+		{{ alert.msg }}
+	</div>
+
+	<div>
+		<h2>Agregar Persona</h2>
+		<form ng-submit="addPerson()" role="form" class="form-inline">
+
+			<div class="form-group">
+				<input id="inputName" class="form-control" type="text" ng-model="person.nombre" placeholder="Enter a name">
+			</div>
+			<div class="form-group">
+				<input id="inputSurname" class="form-control" type="text" ng-model="person.apellido" placeholder="Enter a surname">
+			</div>
+
+			<input class="btn btn-primary" type="submit" value="add">
+		</form>
+		<hr>
+	</div>
+	<div>
+		<h2>Personas</h2>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Apellido</th>
+								<th style="width:30px;">Opciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="pers in personas | startFrom:currentPage*pageSize | limitTo:pageSize">
+								<td>{{ pers.nombre }}</td>
+								<td>{{ pers.apellido }}</td>
+								<td>
+									<button title="Delete Person" ng-click="deletePerson(pers, $event)" type="button" class="btn btn-default btn-xs">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+                                    <a ng-controller="MongoEditController" title="Edit Person" ng-click="open(pers)" type="button" class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <ul class="pager">
+                    	<li><a href="" ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</a></li>
+                    	{{currentPage+1}} of {{ personas.length/pageSize | number:0 }} 
+                    	<li><a href="" ng-hide="currentPage >= personas.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="src/controllers/MongoController.js"></script>
+    <script src="src/controllers/MongoEditController.js"></script>
+
+</div>

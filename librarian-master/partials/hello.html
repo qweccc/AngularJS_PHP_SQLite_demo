@@ -1,0 +1,16 @@
+<section class="ff-container top"> 
+	<div class="leftmenu">
+		<input ng-model="query" placeholder="Search {{ books.length }} books" type="text" id="filter" />  
+
+		<a href="#/edit/0" class="button green">Add a book</a>   
+	</div>
+
+	<ul class="ff-items bounceIn" ng-cloak>
+		<li class="ff-item-type-2" ng-repeat="book in books | filter:query">
+			<a href="#/{{ book.Id }}">
+				<span>{{ book.Title }}</span>
+				<img ng-src="covers/{{ book.Thumbnail }}" />
+			</a>
+		</li>
+	</ul>
+</section>

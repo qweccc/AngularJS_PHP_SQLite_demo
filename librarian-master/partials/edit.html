@@ -1,0 +1,76 @@
+<style>
+	header { display: none!important; }
+</style>
+<a class="back" href="#/"></a>
+<section class="ff-container bounceIn" id="detail-view" ng-cloak>      
+	<div class="ff-preview">
+		<img drop cover class="bookcover drop-shadow" />		
+		<div class="bookdata">
+		<form novalidate>
+			<div class="table">
+				<div class="row">
+					<div>Title</div>
+					<div><input ng-model="book.Title" type="text"/></div>
+				</div>
+				<div class="row">
+					<div>Subtitle</div>
+					<div><input ng-model="book.Subtitle" type="text"/></div>
+				</div>				
+				<div class="row">
+					<div>ISBN</div>
+					<div><input ng-model="book.ISBN" type="text" class="isbn" digits/></div>
+				</div>
+				<div class="row">
+					<div>Author</div>
+					<div><input ng-model="book.Author" type="text"/></div>
+				</div>
+				<div class="row">
+					<div>Publisher</div>
+					<div><input ng-model="book.Publisher" type="text"/></div>
+				</div>
+				<div class="row">
+					<div>Genre</div>
+					<div><input ng-model="book.Genre" type="text"/></div>
+				</div>
+				<div class="row">
+					<div>Published</div>
+					<div><input ng-model="book.DatePublished" type="text" /></div>
+				</div>				
+				<div class="row">
+					<div>Description</div>
+					<div><textarea ng-model="book.Description"></textarea></div>
+				</div>
+				<div class="row">
+					<div>Notes</div>
+					<div><textarea ng-model="book.Notes" class="notes"></textarea></div>
+				</div>						
+				<div class="row">
+			    	<div>Rating</div>
+			    	<div> 
+			    	<select ng-model="book.Rating" 
+			    			ng-selected="book.Rating" 
+			    			ng-options="n for n in [] | range:0:6" />
+	                </div>
+			    </div>				
+				<div class="row">
+					<div>Pages</div>
+					<div><input ng-model="book.PageCount" type="number" digits /></div>
+				</div>
+				<div class="row">
+		            <div>Finished?</div>
+		            <div><input ng-model="book.HasRead" type="checkbox" /></div>
+		        </div>		        
+		        <div class="row">
+		        	<div></div>
+		        	<div class="col toolbox" ng-switch="book.Id === 0">
+		        		<a submit class="button green"></a>
+		        		<a ng-switch-when="true" google class="button darkblue">Google</a>
+		        		<a ng-switch-when="true" ng-href="#/" class="button darkblue">Close</a>
+		        		<a ng-switch-when="false" ng-href="#/{{ book.Id }}" class="button darkblue">Close</a>
+		        	</div>
+		        </div>	
+			</div>
+		</form>
+		</div>
+	</div>
+</section>
